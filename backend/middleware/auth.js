@@ -28,10 +28,15 @@ const checkAuth = (req, res, next) => {
         req.user = null;
         next();
       } else {
-        const { id } = decodedToken;
-        const user = await User.findById(id);
-        req.user = user;
-        next();
+        try {
+          const { id } = decodedToken;
+          const user = await User.findById(id);
+          req.user = user;
+          next();
+        } catch (error) {
+          req.user = null;
+          next();
+        }
       }
     });
   } else {

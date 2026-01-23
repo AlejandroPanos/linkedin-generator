@@ -5,11 +5,15 @@ const { createToken, maxAge } = require("../helpers/helpers");
 /* Create controllers */
 exports.getLoggedUser = async (req, res) => {
   try {
+    if (!req.user) {
+      return res.status(401).json({ error: "User not authenticated" });
+    }
+
     const userId = req.user.id;
     const user = await User.findById(userId);
 
     if (!user) {
-      res.status(401).json({ error: "User not found" });
+      return res.status(401).json({ error: "User not found" });
     }
 
     res.status(200).json(user);
