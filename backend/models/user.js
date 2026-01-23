@@ -69,15 +69,15 @@ userSchema.statics.login = async function (email, password) {
   return user;
 };
 
-userSchema.pre("save", async function (next) {
+userSchema.pre("save", async function () {
   if (!this.isModified("password") || !this.password) {
     return;
   }
 
   try {
-    this.password = await bcrypt.hash(this.password);
+    this.password = await bcrypt.hash(this.password, 10);
   } catch (error) {
-    next(error);
+    console.error(error);
   }
 });
 

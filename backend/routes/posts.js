@@ -2,13 +2,14 @@
 const express = require("express");
 const router = express.Router();
 const postsContollers = require("../controllers/posts");
+const { requireAuth } = require("../middleware/auth");
 
 /* Create routes */
-router.get("/", postsContollers.getPosts);
-router.get("/favorites", postsContollers.getFavorites);
-router.post("/", postsContollers.postSavePost);
-router.patch("/:id/favorite", postsContollers.patchPost);
-router.delete("/:id", postsContollers.deletePost);
+router.get("/", requireAuth, postsContollers.getPosts);
+router.get("/favorites", requireAuth, postsContollers.getFavorites);
+router.post("/", requireAuth, postsContollers.postSavePost);
+router.patch("/:id/favorite", requireAuth, postsContollers.patchPost);
+router.delete("/:id", requireAuth, postsContollers.deletePost);
 
 /* Create export */
 module.exports = router;
