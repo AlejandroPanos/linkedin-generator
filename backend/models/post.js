@@ -59,7 +59,7 @@ const postSchema = new Schema(
 postSchema.statics.createPost = async function (topic, tone, length, context) {
   // Validate input
   if (!topic || !tone || !length || !context) {
-    res.status(400).json({ error: "All fields are required" });
+    throw new Error("All fields are required");
   }
 
   // Call Anthropic API

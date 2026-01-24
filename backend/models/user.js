@@ -77,7 +77,7 @@ userSchema.pre("save", async function () {
   try {
     this.password = await bcrypt.hash(this.password, 10);
   } catch (error) {
-    console.error(error);
+    throw new Error("Password operation failed");
   }
 });
 

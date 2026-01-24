@@ -9,12 +9,12 @@ exports.postGenerate = async (req, res) => {
     const post = await Post.createPost(topic, tone, length, context);
 
     res.status(200).json({
-      success: true,
       content: post,
       parameters: { topic, tone, length, context },
     });
   } catch (error) {
     console.error(error.message);
-    res.status(500).json({ error: error.message });
+    const status = error.message === "All fields are required" ? 400 : 500;
+    res.status(status).json({ error: error.message });
   }
 };
