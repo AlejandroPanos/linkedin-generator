@@ -9,7 +9,7 @@ exports.getPosts = async (req, res) => {
     const user = await User.findById(userId);
 
     if (!user) {
-      res.status(400).json({ error: "User unauthorised" });
+      return res.status(400).json({ error: "User unauthorised" });
     }
 
     const posts = await Post.find();
@@ -26,7 +26,7 @@ exports.getFavorites = async (req, res) => {
     const userId = req.user.id;
     const user = await User.findById(userId);
     if (!user) {
-      res.status(401).json({ error: "User unauthorised" });
+      return res.status(401).json({ error: "User unauthorised" });
     }
 
     const favoritePosts = await Post.find({ userId, isFavorite: true }).sort({ createdAt: -1 });
@@ -45,7 +45,7 @@ exports.postSavePost = async (req, res) => {
     const userId = req.user.id;
     const user = await User.findById(userId);
     if (!user) {
-      res.status(401).json({ error: "User unauthorised" });
+      return res.status(401).json({ error: "User unauthorised" });
     }
 
     if (!content || !topic || !tone || !length || !context) {
@@ -78,11 +78,11 @@ exports.patchPost = async (req, res) => {
 
     const post = await Post.findById(postId);
     if (!post) {
-      res.status(404).json({ error: "Post not found" });
+      return res.status(404).json({ error: "Post not found" });
     }
 
     if (post.userId.toString() !== userId) {
-      res.status(403).json({ error: "User unauthorised to modify post" });
+      return res.status(403).json({ error: "User unauthorised to modify post" });
     }
 
     post.isFavorite = !post.isFavorite;
@@ -102,11 +102,11 @@ exports.deletePost = async (req, res) => {
 
     const post = await Post.findById(postId);
     if (!post) {
-      res.status(404).json({ error: "Post not found" });
+      return res.status(404).json({ error: "Post not found" });
     }
 
     if (post.userId.toString() !== userId) {
-      res.status(403).json({ error: "User unauthorised to delete post" });
+      return res.status(403).json({ error: "User unauthorised to delete post" });
     }
 
     await post.deleteOne();

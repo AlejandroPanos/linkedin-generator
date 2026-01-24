@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-slate-950;
+}
+
+@utility flex-center {
+  @apply flex items-center justify-center;
+}
