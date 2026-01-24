@@ -1,7 +1,16 @@
+import { Outlet } from "react-router";
+
+import Aside from "../components/private/Aside/Aside";
+
 const DashboardLayout = () => {
   return (
     <>
-      <h1>Dashboard Layout</h1>
+      <div className="flex">
+        <Aside />
+        <main className="flex-1 ml-64">
+          <Outlet />
+        </main>
+      </div>
     </>
   );
 };
