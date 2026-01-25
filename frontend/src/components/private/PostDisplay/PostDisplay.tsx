@@ -15,7 +15,7 @@ const PostDisplay = (): React.JSX.Element => {
             id="generated-post"
             placeholder="Your generated post will show here"
             rows={23}
-            disabled
+            readOnly
           ></textarea>
 
           <div className="w-full flex items-center gap-2">

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer components {
+  .post-wrapper {
+    @apply w-full px-4 py-6 flex flex-col items-start gap-4 bg-neutral-900 border border-neutral-800 rounded-xl;
+  }
+
+  .post-wrapper h2 {
+    @apply text-lg font-semibold;
+  }
+
+  .post-wrapper p {
+    @apply text-sm font-light text-neutral-500;
+  }
+
+  .copy-post-btn {
+    @apply flex items-center justify-center gap-2 w-full py-1 rounded-md bg-neutral-700/40 border border-neutral-300 text-neutral-300 text-sm hover:cursor-pointer hover:opacity-95 transition-all;
+  }
+
+  .copy-post-btn p {
+    @apply text-neutral-300 font-medium;
+  }
+}

@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@layer components {
+  .posts-filter-wrapper {
+    @apply w-full pt-12 pb-2 flex items-center justify-between gap-2;
+  }
+
+  .posts-filter-wrapper h2 {
+    @apply text-sm;
+  }
+
+  .pill-btn {
+    @apply relative flex bg-neutral-800 border border-neutral-700 rounded-full p-0.5 w-20 hover:cursor-pointer transition-all;
+  }
+
+  .is-pill {
+    @apply absolute w-9.5 h-4 bg-neutral-700 rounded-full transition-all;
+  }
+
+  .pill-text {
+    @apply relative z-10 w-10 text-xs text-center transition-all;
+  }
+
+  .page-btn {
+    @apply p-1.5 rounded-lg bg-neutral-800 border border-neutral-700 hover:opacity-90 hover:cursor-pointer transition-all;
+  }
+
+  /* 
+  .posts-filter-wrapper p {
+    @apply text-sm font-light text-neutral-500;
+  } */
+}
