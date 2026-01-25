@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@layer components {
+  .aside {
+    @apply fixed top-0 left-0 h-screen w-64 p-4 flex flex-col items-start justify-between gap-4 border-r border-neutral-700;
+  }
+
+  .aside-content-holder {
+    @apply w-full flex flex-col items-start gap-4;
+  }
+
+  .aside-content-holder h3 {
+    @apply text-xs text-neutral-500;
+  }
+
+  .top-aside {
+    @apply w-full flex flex-col items-start gap-8;
+  }
+
+  .hr {
+    @apply w-full text-neutral-700;
+  }
+
+  .nav {
+    @apply w-full flex flex-col items-start gap-1;
+  }
+
+  .nav-link {
+    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-neutral-900 hover:cursor-pointer transition-all;
+  }
+
+  .nav-link p {
+    @apply text-sm font-light;
+  }
+
+  .plan-holder {
+    @apply w-full flex flex-col items-start gap-4 p-4 rounded-md bg-neutral-900 border border-neutral-800 shadow-md shadow-neutral-900;
+  }
+
+  .plan-holder h3  {
+    @apply text-sm text-neutral-500;
+  }
+
+  .plan-holder h3 span {
+    @apply text-xl font-bold text-neutral-300;
+  }
+
+  .plan-type {
+    @apply px-2 py-0.5 rounded-full border border-green-400 bg-green-900 text-green-400 text-xs;
+  }
+
+  .credits-btn {
+    @apply w-full py-1 rounded-md bg-linear-to-t from-neutral-800 to-neutral-700 border border-neutral-700 text-center text-sm hover:cursor-pointer hover:shadow-sm hover:shadow-neutral-800 transition-all;
+  }
+
+  .log-out-btn {
+    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg border border-red-300 text-red-300 bg-red-900 hover:opacity-95 hover:cursor-pointer transition-all;
+  }
+
+  .log-out-btn p {
+    @apply text-sm font-light;
+  }
+
+  .bottom-aside {
+    @apply w-full flex flex-col items-start gap-6;
+  }
+
+  .user-content-holder {
+    @apply w-full flex items-center gap-2;
+  }
+
+  .user-img-holder {
+    @apply rounded-full w-12 h-12 overflow-hidden;
+  }
+
+  .user-img-holder img {
+    @apply w-full h-full object-cover object-center;
+  }
+
+  .user-personal-info {
+    @apply flex flex-col items-start;
+  }
+
+  .user-personal-info h3 {
+    @apply text-lg font-semibold;
+  }
+
+  .user-personal-info p {
+    @apply font-light text-neutral-500 text-sm;
+  }
+}
