@@ -2,7 +2,7 @@
 
 @layer components {
   .aside {
-    @apply fixed top-0 left-0 h-screen w-64 p-4 flex flex-col items-start justify-between gap-4 border-r border-neutral-700;
+    @apply fixed top-0 left-0 h-screen p-4 flex flex-col items-start justify-between gap-4 bg-neutral-950/50 md:bg-transparent z-50 overflow-hidden border-r border-neutral-700;
   }
 
   .aside-content-holder {
@@ -13,8 +13,24 @@
     @apply text-xs text-neutral-500;
   }
 
+  .mobile-menu-btn {
+    @apply fixed top-4 right-4 z-50 md:hidden p-2 rounded-md bg-linear-to-tl from-orange-700 to-orange-800 text-neutral-300;
+  }
+
+  .mobile-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden transition-all;
+  }
+
   .top-aside {
     @apply w-full flex flex-col items-start gap-8;
+  }
+
+  .logo-holder {
+    @apply w-full flex items-center gap-2;
+  }
+
+  .logo-holder button {
+    @apply hidden md:block p-2 rounded-md hover:bg-neutral-800 text-neutral-300 hover:cursor-pointer transition-colors shrink-0;
   }
 
   .hr {
@@ -26,7 +42,7 @@
   }
 
   .nav-link {
-    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-neutral-900 hover:cursor-pointer transition-all;
+    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-neutral-900 hover:cursor-pointer;
   }
 
   .nav-link p {

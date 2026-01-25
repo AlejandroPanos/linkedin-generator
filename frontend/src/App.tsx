@@ -2,8 +2,11 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import "./App.css";
 
-// Import pages
+// Import private pages
 import Dashboard from "./pages/private/Dashboard";
+import SavedPosts from "./pages/private/SavedPosts";
+import Settings from "./pages/private/Settings";
+import Support from "./pages/private/Support";
 
 // Import layouts
 import PublicLayout from "./layouts/PublicLayout";
@@ -16,12 +19,24 @@ const router = createBrowserRouter([
     children: [],
   },
   {
-    path: "/dashboard",
+    path: "/",
     element: <DashboardLayout />,
     children: [
       {
-        index: true,
+        path: "dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "posts",
+        element: <SavedPosts />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+      {
+        path: "support",
+        element: <Support />,
       },
     ],
   },

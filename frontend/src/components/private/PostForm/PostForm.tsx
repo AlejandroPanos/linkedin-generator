@@ -6,7 +6,7 @@ const PostForm = (): React.JSX.Element => {
   return (
     <>
       <div className="content-wrapper h-full">
-        <h2>What do you want to create?</h2>
+        <h2>Post Data</h2>
 
         <div className="post-form-wrapper">
           <form className="post-form">
