@@ -12,7 +12,7 @@ import "./Aside.css";
 import logo from "../../../images/Logo.svg";
 import avatar from "../../../images/Avatar.jpg";
 
-const Aside = () => {
+const Aside = (): React.JSX.Element => {
   return (
     <>
       <aside className="aside">
@@ -20,7 +20,11 @@ const Aside = () => {
         <div className="top-aside">
           <div className="w-full flex items-center justify-between gap-2">
             <img className="w-36" src={logo} alt="Scribble AI logo" />
-            <button className="hidden md:block p-2 rounded-md hover:bg-neutral-800 text-neutral-300 hover:cursor-pointer">
+            <button
+              type="button"
+              aria-label="Collapse sidebar"
+              className="hidden md:block p-2 rounded-md hover:bg-neutral-800 text-neutral-300 hover:cursor-pointer"
+            >
               <ArrowLeftFromLine className="h-4 w-4" />
             </button>
           </div>

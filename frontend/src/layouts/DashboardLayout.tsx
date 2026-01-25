@@ -2,7 +2,7 @@ import { Outlet } from "react-router";
 
 import Aside from "../components/private/Aside/Aside";
 
-const DashboardLayout = () => {
+const DashboardLayout = (): React.JSX.Element => {
   return (
     <>
       <div className="flex">

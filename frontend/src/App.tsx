@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   },
 ]);
 
-const App = () => {
+const App = (): React.JSX.Element => {
   return (
     <>
       <RouterProvider router={router} />
