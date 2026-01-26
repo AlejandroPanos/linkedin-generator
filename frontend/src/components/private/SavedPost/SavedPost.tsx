@@ -17,7 +17,7 @@ const SavedPost = () => {
         </p>
         <button className="copy-post-btn" type="button">
           <Copy className="w-4 h-4" />
-          <p>Copy</p>
+          <span>Copy</span>
         </button>
       </div>
     </>

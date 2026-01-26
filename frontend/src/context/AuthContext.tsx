@@ -1,0 +1,79 @@
+import { useReducer, createContext, useEffect } from "react";
+import type { Dispatch, ReactNode } from "react";
+import { checkAuth } from "../helpers/helpers";
+
+interface User {
+  name: string;
+  email: string;
+}
+
+interface AuthState {
+  user: User | null;
+  isAuthReady: boolean;
+}
+
+type AuthAction =
+  | { type: "REGISTER"; payload: User }
+  | { type: "LOGIN"; payload: User }
+  | { type: "LOGOUT" }
+  | { type: "AUTH_READY" };
+
+interface AuthContextType {
+  user: User | null;
+  isAuthReady: boolean;
+  dispatch: Dispatch<AuthAction>;
+}
+
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+const reducer = (state: AuthState, action: AuthAction): AuthState => {
+  switch (action.type) {
+    case "REGISTER":
+      return { ...state, user: action.payload, isAuthReady: true };
+    case "LOGIN":
+      return { ...state, user: action.payload, isAuthReady: true };
+    case "LOGOUT":
+      return { ...state, user: null, isAuthReady: true };
+    case "AUTH_READY":
+      return { ...state, isAuthReady: true };
+    default:
+      return state;
+  }
+};
+
+interface AuthContextProviderProps {
+  children: ReactNode;
+}
+
+const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
+  const initialState: AuthState = {
+    user: null,
+    isAuthReady: false,
+  };
+
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    const verifyUser = async () => {
+      try {
+        const user = await checkAuth();
+        dispatch({ type: "LOGIN", payload: user });
+      } catch (error) {
+        console.error(error);
+        console.log("Auth Failed");
+        dispatch({ type: "AUTH_READY" });
+      }
+    };
+    verifyUser();
+  }, []);
+
+  console.log("AuthContext State:", state);
+
+  if (!state.isAuthReady) {
+    return null;
+  }
+
+  return <AuthContext.Provider value={{ ...state, dispatch }}>{children}</AuthContext.Provider>;
+};
+
+export default AuthContextProvider;

@@ -11,17 +11,18 @@ const PostForm = (): React.JSX.Element => {
         <div className="post-form-wrapper">
           <form className="post-form">
             <div className="input-holder">
-              <label htmlFor="topic">Topic</label>
+              <label htmlFor="topic">Topic*</label>
               <input
                 name="topic"
                 id="topic"
                 type="text"
                 placeholder="e.g: A post about changing careers"
+                required
               />
             </div>
             <div className="relative input-holder">
-              <label htmlFor="tone">Tone</label>
-              <select name="tone" id="tone">
+              <label htmlFor="tone">Tone*</label>
+              <select name="tone" id="tone" required>
                 <option value="">-- Select an option --</option>
                 <option value="professional">Professional</option>
                 <option value="casual">Casual</option>
@@ -34,7 +35,7 @@ const PostForm = (): React.JSX.Element => {
               <ChevronDown className="input-holder-chevron" />
             </div>
             <div className="input-holder">
-              <label htmlFor="length">Length</label>
+              <label htmlFor="length">Length*</label>
               <input
                 name="length"
                 id="length"
@@ -42,22 +43,24 @@ const PostForm = (): React.JSX.Element => {
                 min={50}
                 max={300}
                 placeholder="A number between 50-300"
+                required
               />
             </div>
             <div className="input-holder">
-              <label htmlFor="context">Context</label>
+              <label htmlFor="context">Context*</label>
               <textarea
                 name="context"
                 id="context"
                 rows={5}
                 placeholder="e.g: I am changing careers and I want a motivational post about change to share with my network."
+                required
               />
             </div>
           </form>
 
           <button className="generate-post-btn">
             <Sparkles className="w-4 h-4 font-medium" />
-            <p>Generate</p>
+            <span>Generate</span>
           </button>
         </div>
       </div>

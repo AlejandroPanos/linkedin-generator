@@ -21,11 +21,11 @@ const PostDisplay = (): React.JSX.Element => {
           <div className="w-full flex items-center gap-2">
             <button className="save-post-btn">
               <ArrowDownToLine className="w-4 h-4 font-medium" />
-              <p>Save</p>
+              <span>Save</span>
             </button>
             <button className="copy-post-btn">
               <Copy className="w-4 h-4 font-medium" />
-              <p>Copy</p>
+              <span>Copy</span>
             </button>
           </div>
         </div>

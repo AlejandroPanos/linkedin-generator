@@ -1,7 +1,16 @@
+import { Outlet } from "react-router";
+
+import Navbar from "../components/public/Navbar/Navbar";
+
 const PublicLayout = (): React.JSX.Element => {
   return (
     <>
-      <h1>Public Layout</h1>
+      <div className="px-16 py-8 flex flex-col items-center gap-12">
+        <Navbar />
+        <main className="w-full">
+          <Outlet />
+        </main>
+      </div>
     </>
   );
 };

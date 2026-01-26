@@ -8,6 +8,15 @@ import SavedPosts from "./pages/private/SavedPosts";
 import Settings from "./pages/private/Settings";
 import Support from "./pages/private/Support";
 
+// Import public pages
+import Home from "./pages/public/Home";
+import Register from "./pages/public/Register";
+import Login from "./pages/public/Login";
+
+// Import routes
+import PublicRoute from "./components/routes/PublicRoute";
+import PrivateRoute from "./components/routes/PrivateRoute";
+
 // Import layouts
 import PublicLayout from "./layouts/PublicLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
@@ -16,7 +25,32 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <PublicLayout />,
-    children: [],
+    children: [
+      {
+        index: true,
+        element: (
+          <PublicRoute>
+            <Home />
+          </PublicRoute>
+        ),
+      },
+      {
+        path: "/register",
+        element: (
+          <PublicRoute>
+            <Register />
+          </PublicRoute>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <PublicRoute>
+            <Login />
+          </PublicRoute>
+        ),
+      },
+    ],
   },
   {
     path: "/",
@@ -24,19 +58,35 @@ const router = createBrowserRouter([
     children: [
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "posts",
-        element: <SavedPosts />,
+        element: (
+          <PrivateRoute>
+            <SavedPosts />
+          </PrivateRoute>
+        ),
       },
       {
         path: "settings",
-        element: <Settings />,
+        element: (
+          <PrivateRoute>
+            <Settings />
+          </PrivateRoute>
+        ),
       },
       {
         path: "support",
-        element: <Support />,
+        element: (
+          <PrivateRoute>
+            <Support />
+          </PrivateRoute>
+        ),
       },
     ],
   },

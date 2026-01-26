@@ -37,7 +37,7 @@
     @apply flex items-center justify-center gap-2 w-full py-1 rounded-md bg-linear-to-t from-orange-800 to-orange-700 text-sm hover:cursor-pointer hover:opacity-95 transition-all;
   }
 
-  .generate-post-btn p {
+  .generate-post-btn span {
     @apply text-neutral-300 font-medium;
   }
 }

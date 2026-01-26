@@ -10,11 +10,14 @@ import {
   ArrowLeftFromLine,
   ArrowRightFromLine,
 } from "lucide-react";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
+import { useMutation } from "@tanstack/react-query";
 
 import "./Aside.css";
 import logo from "../../../images/Logo.svg";
 import avatar from "../../../images/Avatar.jpg";
+import { logout } from "../../../helpers/helpers";
+import { useAuth } from "../../../hooks/useAuth";
 
 interface AsideDesktop {
   close: boolean;
@@ -22,6 +25,21 @@ interface AsideDesktop {
 }
 
 const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
+  const navigate = useNavigate();
+  const { dispatch } = useAuth();
+
+  const logoutMutation = useMutation({
+    mutationFn: logout,
+    onSuccess: () => {
+      dispatch({ type: "LOGOUT" });
+      navigate("/");
+    },
+  });
+
+  const handleClick = () => {
+    logoutMutation.mutate();
+  };
+
   return (
     <>
       {/* Mobile menu button */}
@@ -151,6 +169,7 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
             </div>
           </div>
           <button
+            onClick={handleClick}
             className={`log-out-btn ${close ? "justify-center" : ""}`}
             title={close ? "Log Out" : ""}
           >

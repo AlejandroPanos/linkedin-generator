@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@layer components {
+  .public-nav {
+    @apply relative max-md:w-full flex items-center justify-between border border-neutral-700 px-6 py-4 rounded-full text-sm;
+  }
+
+  .desktop-nav-link-holder {
+    @apply hidden md:flex items-center gap-6 ml-16;
+  }
+
+  .desktop-nav-link {
+    @apply relative overflow-hidden;
+  }
+
+  .span-visible {
+    @apply block group-hover:-translate-y-full transition-all;
+  }
+
+  .span-hidden {
+    @apply block absolute top-full left-0 group-hover:-translate-y-full transition-all;
+  }
+
+  .nav-btn-group {
+    @apply hidden ml-14 md:flex items-center gap-4;
+  }
+
+  .login-btn-desktop {
+    @apply border border-neutral-600 hover:bg-neutral-800 px-4 py-2 rounded-full text-sm font-medium hover:cursor-pointer transition-all;
+  }
+
+  .register-btn-desktop {
+    @apply bg-neutral-100 hover:shadow-[0px_0px_10px_4px] shadow-[0px_0px_10px_2px] hover:shadow-neutral-100/50 shadow-neutral-100/50 text-neutral-950 px-4 py-2 rounded-full text-sm font-medium hover:cursor-pointer transition-all;
+  }
+
+  /* Mobile */
+  .public-menu-btn {
+    @apply md:hidden p-2 text-neutral-300 hover:bg-neutral-800 rounded-lg transition-colors;
+  }
+
+  .public-mobile-menu {
+    @apply absolute top-full left-0 right-0 mt-4 p-6 bg-neutral-900 border border-neutral-700 rounded-3xl flex-col items-center gap-4 md:hidden;
+  }
+
+  .public-mobile-menu a {
+    @apply text-neutral-300 text-sm;
+  }
+
+  .public-mobile-menu button:nth-last-child(2) {
+    @apply w-full border border-neutral-600 px-4 py-2 rounded-full text-sm font-medium;
+  }
+
+  .public-mobile-menu button:last-child {
+    @apply w-full bg-neutral-100 shadow-[0px_0px_10px_2px] shadow-neutral-100/50 text-neutral-950 px-4 py-2 rounded-full text-sm font-medium;
+  }
+}
