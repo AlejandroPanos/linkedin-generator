@@ -7,7 +7,6 @@ import { useAuth } from "../../../hooks/useAuth";
 
 const SavedPostsList = () => {
   const { user } = useAuth();
-  console.log(user);
 
   // const postsQuery = useQuery({
   //   queryKey: ["posts"], //! Import userId

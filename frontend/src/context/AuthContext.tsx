@@ -67,8 +67,6 @@ const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
     verifyUser();
   }, []);
 
-  console.log("AuthContext State:", state);
-
   if (!state.isAuthReady) {
     return null;
   }

@@ -38,6 +38,17 @@ export const checkAuth = async () => {
 };
 
 /* Create AI helpers */
+interface Post {
+  topic: string;
+  tone: string;
+  length: number;
+  context: string;
+}
+
+export const generatePost = async (post: Post) => {
+  const response = await axios.post("/api/ai/generate", post);
+  return response.data;
+};
 
 /* Create POSTS helpers */
 export const getPosts = async () => {
