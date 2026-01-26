@@ -37,6 +37,7 @@ const PostForm = (): React.JSX.Element => {
               <label htmlFor="length">Length</label>
               <input
                 name="length"
+                id="length"
                 type="number"
                 min={50}
                 max={300}
@@ -47,6 +48,7 @@ const PostForm = (): React.JSX.Element => {
               <label htmlFor="context">Context</label>
               <textarea
                 name="context"
+                id="context"
                 rows={5}
                 placeholder="e.g: I am changing careers and I want a motivational post about change to share with my network."
               />

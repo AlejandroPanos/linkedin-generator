@@ -5,7 +5,7 @@ import Aside from "../components/private/Aside/Aside";
 
 const DashboardLayout = (): React.JSX.Element => {
   const [asideClose, setAsideClose] = useState(() => {
-    if (typeof window !== undefined) {
+    if (typeof window !== "undefined") {
       return window.innerWidth < 768;
     }
     return true;
