@@ -35,4 +35,20 @@ body {
   .content-wrapper p {
     @apply text-sm font-light text-neutral-500;
   }
+
+  .content-wrapper a {
+    @apply text-neutral-300 underline hover:opacity-90 transition-all;
+  }
+
+  .content-wrapper ul {
+    @apply w-full flex flex-col items-start gap-2 text-sm font-light text-neutral-500 list-inside;
+  }
+
+  .content-wrapper ul li {
+    @apply list-disc;
+  }
+
+  .content-wrapper ul li strong {
+    @apply font-semibold text-neutral-300;
+  }
 }
