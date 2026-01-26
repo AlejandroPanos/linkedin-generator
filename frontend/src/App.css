@@ -79,6 +79,6 @@ body {
   }
 
   .auth-form-btn-wrapper button {
-    @apply w-full rounded-lg px-4 py-2 font-medium bg-linear-to-t from-orange-800 to-orange-700 text-sm hover:opacity-95 hover:cursor-pointer;
+    @apply w-full rounded-lg px-4 py-2 font-medium bg-linear-to-t from-orange-800 to-orange-700 text-sm hover:opacity-95 hover:cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed;
   }
 }
