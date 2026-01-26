@@ -57,7 +57,7 @@ const PostForm = (): React.JSX.Element => {
 
           <button className="generate-post-btn">
             <Sparkles className="w-4 h-4 font-medium" />
-            <p>Generate</p>
+            <span>Generate</span>
           </button>
         </div>
       </div>

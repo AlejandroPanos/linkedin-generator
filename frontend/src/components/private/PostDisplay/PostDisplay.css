@@ -13,11 +13,11 @@
     @apply flex items-center justify-center gap-2 w-full py-1 rounded-md bg-transparent border border-neutral-300 text-neutral-300 text-sm hover:cursor-pointer hover:opacity-95 transition-all;
   }
 
-  .save-post-btn p {
+  .save-post-btn span {
     @apply text-orange-400 font-medium;
   }
 
-  .copy-post-btn p {
+  .copy-post-btn span {
     @apply text-neutral-300 font-medium;
   }
 }

@@ -4,7 +4,7 @@ const SupportDetails = () => {
       <div className="content-wrapper">
         <h2>Contact Details</h2>
         <p>
-          If you run into anny issue, you may get in touch with out support team by clicking{" "}
+          If you run into any issue, you may get in touch with our support team by clicking{" "}
           <a href="#">here</a>, or by using one of the following methods:
         </p>
         <ul>

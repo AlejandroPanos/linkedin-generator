@@ -1,4 +1,31 @@
 @import "tailwindcss";
 
 @layer components {
+  .settings-form {
+    @apply w-full flex flex-col items-start gap-4;
+  }
+
+  .settings-form button {
+    @apply flex items-center justify-center gap-2 w-full py-1 rounded-md bg-linear-to-t from-orange-800 to-orange-700 text-sm hover:cursor-pointer hover:opacity-95 transition-all;
+  }
+
+  .settings-form button span {
+    @apply text-neutral-300 font-medium;
+  }
+
+  .input-group-wrapper {
+    @apply w-full flex flex-col lg:flex-row items-center justify-between gap-2;
+  }
+
+  .input-wrapper {
+    @apply w-full flex flex-col items-start gap-2;
+  }
+
+  .input-wrapper label {
+    @apply text-sm;
+  }
+
+  .input-wrapper input {
+    @apply w-full px-2 py-1 text-sm rounded-md border border-neutral-700 placeholder:text-neutral-500 placeholder:text-sm;
+  }
 }

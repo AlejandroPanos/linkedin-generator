@@ -20,8 +20,15 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+/* CORS configuration */
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
 /* Consigure CORS */
-app.use(cors());
+app.use(cors(corsOptions));
 
 /* Use routes */
 app.use(checkAuth);

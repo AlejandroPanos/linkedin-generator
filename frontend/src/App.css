@@ -52,3 +52,33 @@ body {
     @apply font-semibold text-neutral-300;
   }
 }
+
+@layer components {
+  .auth-form {
+    @apply flex flex-col justify-center w-full max-w-96 rounded-xl px-6 py-8 border border-neutral-700 text-sm;
+  }
+
+  .auth-form h2 {
+    @apply text-2xl font-semibold;
+  }
+
+  .auth-form {
+    @apply flex flex-col justify-center w-full max-w-96 rounded-xl px-6 py-8 border border-neutral-700 text-sm;
+  }
+
+  .auth-form form {
+    @apply mt-8 flex flex-col items-start gap-2;
+  }
+
+  .auth-form form input {
+    @apply w-full p-2 mb-3 bg-neutral-900 border border-neutral-700 rounded-md;
+  }
+
+  .auth-form-btn-wrapper {
+    @apply w-full mt-4 flex flex-col items-center gap-1;
+  }
+
+  .auth-form-btn-wrapper button {
+    @apply w-full rounded-lg px-4 py-2 font-medium bg-linear-to-t from-orange-800 to-orange-700 text-sm hover:opacity-95 hover:cursor-pointer;
+  }
+}
