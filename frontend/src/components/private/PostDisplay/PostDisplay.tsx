@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import { ArrowDownToLine, Copy, Pencil, PencilOff } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
+import { useMutation } from "@tanstack/react-query";
+import { useNavigate } from "react-router";
 
 import "./PostDisplay.css";
+import { savePost } from "../../../helpers/helpers";
 
 interface GeneratedPost {
   success: boolean;
@@ -26,6 +29,15 @@ const PostDisplay = ({ data, isPending, isError, error }: PostDisplayProps): Rea
   const [isEditing, setIsEditing] = useState(false);
   const [editedContent, setEditedContent] = useState("");
 
+  const navigate = useNavigate();
+  const savePostMutation = useMutation({
+    mutationFn: savePost,
+    onSuccess: () => {
+      navigate("/posts");
+      toast.success("Saved post to your library");
+    },
+  });
+
   useEffect(() => {
     if (data?.content) {
       setEditedContent(data.content);
@@ -40,17 +52,45 @@ const PostDisplay = ({ data, isPending, isError, error }: PostDisplayProps): Rea
       toast.success("Exited edit mode!");
     }
   };
-
-  const handleCopy = () => {
-    if (editedContent) {
-      navigator.clipboard.writeText(editedContent);
+  const handleCopy = async () => {
+    if (!editedContent) return;
+    try {
+      if (!navigator?.clipboard) {
+        toast.error("Clipboard not available in this context.");
+        return;
+      }
+      await navigator.clipboard.writeText(editedContent);
       toast.success("Copied to clipboard!");
+    } catch {
+      toast.error("Copy failed. Please try again.");
     }
   };
 
-  // const handleSave = () => {
+  const handleSave = () => {
+    if (window.confirm("Editing is not available after save. Still want to save?")) {
+      const content = editedContent;
+      const topic = data?.parameters.topic;
+      const tone = data?.parameters.tone;
+      const length = data?.parameters.length;
+      const context = data?.parameters.context;
 
-  // }
+      if (
+        typeof content !== "string" ||
+        typeof topic !== "string" ||
+        typeof tone !== "string" ||
+        typeof length !== "number" ||
+        typeof context !== "string"
+      ) {
+        console.log("Save Post --> Form validation error");
+        return;
+      }
+
+      const newPost = { content, topic, tone, length, context };
+
+      savePostMutation.mutate(newPost);
+    }
+  };
+
   return (
     <>
       <div className="content-wrapper h-full">
@@ -80,7 +120,7 @@ const PostDisplay = ({ data, isPending, isError, error }: PostDisplayProps): Rea
           )}
 
           <div className="w-full flex items-center gap-2">
-            <button disabled={!data || isPending} className="save-post-btn">
+            <button onClick={handleSave} disabled={!data || isPending} className="save-post-btn">
               <ArrowDownToLine className="w-4 h-4 font-medium" />
               <span>Save</span>
             </button>
@@ -92,6 +132,9 @@ const PostDisplay = ({ data, isPending, isError, error }: PostDisplayProps): Rea
               position="top-right"
               toastOptions={{
                 duration: 3000,
+                style: {
+                  padding: "10px",
+                },
                 success: {
                   style: {
                     background: "#032e15",
@@ -101,6 +144,17 @@ const PostDisplay = ({ data, isPending, isError, error }: PostDisplayProps): Rea
                   iconTheme: {
                     primary: "#00c951",
                     secondary: "#032e15",
+                  },
+                },
+                error: {
+                  style: {
+                    background: "#460809",
+                    color: "#ff6467",
+                    border: "1px solid #ff6467",
+                  },
+                  iconTheme: {
+                    primary: "#ff6467",
+                    secondary: "#460809",
                   },
                 },
               }}

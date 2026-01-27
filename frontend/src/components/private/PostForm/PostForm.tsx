@@ -1,4 +1,5 @@
 import { ChevronDown, Sparkles } from "lucide-react";
+import type { JSX } from "react";
 import type { FormEvent } from "react";
 
 import "./PostForm.css";
@@ -9,7 +10,7 @@ interface PostFormProps {
   isError: boolean;
 }
 
-const PostForm = ({ handleSubmit, isPending, isError }: PostFormProps): React.JSX.Element => {
+const PostForm = ({ handleSubmit, isPending, isError }: PostFormProps): JSX.Element => {
   return (
     <>
       <div className="content-wrapper h-full">
