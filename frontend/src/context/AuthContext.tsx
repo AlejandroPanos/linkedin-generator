@@ -6,8 +6,8 @@ interface User {
   _id: string;
   name: string;
   email: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface AuthState {
@@ -18,6 +18,7 @@ interface AuthState {
 type AuthAction =
   | { type: "REGISTER"; payload: User }
   | { type: "LOGIN"; payload: User }
+  | { type: "UPDATE_USER"; payload: User }
   | { type: "LOGOUT" }
   | { type: "AUTH_READY" };
 
@@ -34,6 +35,8 @@ const reducer = (state: AuthState, action: AuthAction): AuthState => {
     case "REGISTER":
       return { ...state, user: action.payload, isAuthReady: true };
     case "LOGIN":
+      return { ...state, user: action.payload, isAuthReady: true };
+    case "UPDATE_USER":
       return { ...state, user: action.payload, isAuthReady: true };
     case "LOGOUT":
       return { ...state, user: null, isAuthReady: true };

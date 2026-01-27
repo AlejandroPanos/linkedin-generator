@@ -22,7 +22,7 @@
   }
 
   .page-btn {
-    @apply p-1.5 rounded-lg bg-neutral-800 border border-neutral-700 hover:opacity-90 hover:cursor-pointer transition-all;
+    @apply p-1.5 rounded-lg bg-neutral-800 border border-neutral-700 hover:opacity-90 hover:cursor-pointer transition-all disabled:opacity-60 disabled:pointer-events-none;
   }
 
   /* 

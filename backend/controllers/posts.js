@@ -6,15 +6,38 @@ const User = require("../models/user");
 exports.getPosts = async (req, res) => {
   try {
     const userId = req.user.id;
-    const user = await User.findById(userId);
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 6;
+    const favoritesOnly = req.query.favorites === "true";
 
+    const user = await User.findById(userId);
     if (!user) {
       return res.status(400).json({ error: "User unauthorised" });
     }
 
-    const posts = await Post.find({ userId });
+    const query = { userId };
+    if (favoritesOnly) {
+      query.isFavorite = true;
+    }
 
-    res.status(200).json(posts);
+    const totalPosts = await Post.countDocuments(query);
+
+    const posts = await Post.find(query)
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * limit)
+      .limit(limit);
+
+    res.status(200).json({
+      posts,
+      pagination: {
+        currentPage: page,
+        totalPages: Math.ceil(totalPosts / limit),
+        totalPosts,
+        postsPerPage: limit,
+        hasNextPage: page < Math.ceil(totalPosts / limit),
+        hasPrevPage: page > 1,
+      },
+    });
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: error.message });

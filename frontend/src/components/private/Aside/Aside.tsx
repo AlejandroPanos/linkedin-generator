@@ -26,7 +26,7 @@ interface AsideDesktop {
 
 const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
   const navigate = useNavigate();
-  const { dispatch } = useAuth();
+  const { user, dispatch } = useAuth();
 
   const logoutMutation = useMutation({
     mutationFn: logout,
@@ -181,8 +181,8 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
               <img src={avatar} alt="User avatar profile photo" />
             </div>
             <div className="user-personal-info overflow-hidden">
-              <h3 className="truncate">John Doe</h3>
-              <p className="truncate">john@gmail.com</p>
+              <h3 className="truncate">{user?.name}</h3>
+              <p className="truncate">{user?.email}</p>
             </div>
           </div>
           <button
