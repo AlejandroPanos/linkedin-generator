@@ -65,7 +65,7 @@ WHAT TO AVOID:
 - Generic advice without personality
 
 OUTPUT:
-Provide ONLY the LinkedIn post text in ENGLISH, ready to copy-paste. No explanations, no meta-commentary. Make sure the format is plain text, no markup or HTML, just plain text`;
+Provide ONLY the LinkedIn post text in ENGLISH, ready to copy-paste. No explanations, no meta-commentary. Make sure the format is plain text, no markup or HTML, and also no signs arround the text such as '*', just plain text with the structure provided`;
 
 const userPrompt = (topic, tone, length, context) => `
 Create a LinkedIn post with these parameters:

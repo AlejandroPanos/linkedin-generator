@@ -51,7 +51,20 @@ export const generatePost = async (post: Post) => {
 };
 
 /* Create POSTS helpers */
+interface SavedPost {
+  content: string;
+  topic: string;
+  tone: string;
+  length: number;
+  context: string;
+}
+
 export const getPosts = async () => {
   const response = await axios.get("/api/posts/");
+  return response.data;
+};
+
+export const savePost = async (post: SavedPost) => {
+  const response = await axios.post("/api/posts/", post);
   return response.data;
 };

@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@layer components {
+  .error-holder {
+    @apply flex items-start sm:items-center p-4 mb-4 text-sm text-red-400 rounded-lg bg-red-950 border border-red-400;
+  }
+}

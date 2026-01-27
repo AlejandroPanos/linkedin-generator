@@ -3,8 +3,11 @@ import type { Dispatch, ReactNode } from "react";
 import { checkAuth } from "../helpers/helpers";
 
 interface User {
+  _id: string;
   name: string;
   email: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 interface AuthState {

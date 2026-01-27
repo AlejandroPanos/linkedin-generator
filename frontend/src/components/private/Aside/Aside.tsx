@@ -93,7 +93,12 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
             <nav className="nav">
               <NavLink
                 to="dashboard"
-                className={`nav-link ${close ? "justify-center" : ""}`}
+                className={({ isActive }) =>
+                  isActive
+                    ? `nav-link ${close ? "justify-center" : ""}`
+                    : `nav-link-inactive ${close ? "justify-center" : ""}`
+                }
+                // className={`nav-link ${close ? "justify-center" : ""}`}
                 title={close ? "Generate Post" : ""}
               >
                 <WandSparkles className="h-4 w-4 shrink-0" />
@@ -101,7 +106,11 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
               </NavLink>
               <NavLink
                 to="posts"
-                className={`nav-link ${close ? "justify-center" : ""}`}
+                className={({ isActive }) =>
+                  isActive
+                    ? `nav-link ${close ? "justify-center" : ""}`
+                    : `nav-link-inactive ${close ? "justify-center" : ""}`
+                }
                 title={close ? "My Posts" : ""}
               >
                 <ScrollText className="h-4 w-4 shrink-0" />
@@ -109,7 +118,11 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
               </NavLink>
               <NavLink
                 to="settings"
-                className={`nav-link ${close ? "justify-center" : ""}`}
+                className={({ isActive }) =>
+                  isActive
+                    ? `nav-link ${close ? "justify-center" : ""}`
+                    : `nav-link-inactive ${close ? "justify-center" : ""}`
+                }
                 title={close ? "Settings" : ""}
               >
                 <Settings className="h-4 w-4 shrink-0" />
@@ -117,7 +130,11 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
               </NavLink>
               <NavLink
                 to="support"
-                className={`nav-link ${close ? "justify-center" : ""}`}
+                className={({ isActive }) =>
+                  isActive
+                    ? `nav-link ${close ? "justify-center" : ""}`
+                    : `nav-link-inactive ${close ? "justify-center" : ""}`
+                }
                 title={close ? "Support" : ""}
               >
                 <CircleQuestionMark className="h-4 w-4 shrink-0" />

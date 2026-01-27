@@ -42,10 +42,15 @@
   }
 
   .nav-link {
-    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg hover:bg-neutral-900 hover:cursor-pointer;
+    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg bg-neutral-900 border border-neutral-800 hover:bg-neutral-900 hover:cursor-pointer;
   }
 
-  .nav-link p {
+  .nav-link-inactive {
+    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg border border-neutral-950 hover:bg-neutral-900 hover:cursor-pointer;
+  }
+
+  .nav-link p,
+  .nav-link-inactive p {
     @apply text-sm font-light;
   }
 

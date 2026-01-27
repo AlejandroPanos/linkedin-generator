@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer components {
+  .loader-holder {
+    @apply w-full h-40 flex items-center justify-center;
+  }
+
+  .loader-holder svg {
+    @apply inline w-8 h-8 text-neutral-800 animate-spin fill-orange-400;
+  }
+}
