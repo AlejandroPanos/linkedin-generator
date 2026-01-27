@@ -30,7 +30,7 @@
   }
 
   .delete-btn {
-    @apply hover:opacity-90 hover:cursor-pointer transition-all;
+    @apply hover:opacity-90 hover:cursor-pointer transition-all disabled:opacity-60 disabled:pointer-events-none;
   }
 
   .copy-post-btn {

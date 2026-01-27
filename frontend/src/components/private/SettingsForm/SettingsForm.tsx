@@ -16,6 +16,9 @@ const SettingsForm = (): React.JSX.Element => {
       dispatch({ type: "UPDATE_USER", payload: data.user });
       toast.success("Profile updated!");
     },
+    onError: () => {
+      toast.error("Could not update profile. Please try again.");
+    },
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -26,7 +29,7 @@ const SettingsForm = (): React.JSX.Element => {
     const password = formData.get("password");
 
     if (typeof name !== "string" || typeof email !== "string" || typeof password !== "string") {
-      console.log("Update Profile --> Form validation error");
+      toast.error("Please fill out all fields correctly.");
       return;
     }
 
