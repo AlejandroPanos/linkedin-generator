@@ -36,6 +36,9 @@ const PostDisplay = ({ data, isPending, isError, error }: PostDisplayProps): Rea
       navigate("/posts");
       toast.success("Saved post to your library");
     },
+    onError: () => {
+      toast.error("Failed to save post. Please try again.");
+    },
   });
 
   useEffect(() => {
@@ -120,7 +123,11 @@ const PostDisplay = ({ data, isPending, isError, error }: PostDisplayProps): Rea
           )}
 
           <div className="w-full flex items-center gap-2">
-            <button onClick={handleSave} disabled={!data || isPending} className="save-post-btn">
+            <button
+              onClick={handleSave}
+              disabled={!data || isPending || savePostMutation.isPending}
+              className="save-post-btn"
+            >
               <ArrowDownToLine className="w-4 h-4 font-medium" />
               <span>Save</span>
             </button>

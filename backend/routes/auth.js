@@ -6,6 +6,7 @@ const { requireAuth } = require("../middleware/auth");
 
 /* Create routes */
 router.get("/profile", requireAuth, authControllers.getLoggedUser);
+router.post("/profile", requireAuth, authControllers.updateProfile);
 router.post("/register", authControllers.postRegister);
 router.post("/login", authControllers.postLogin);
 router.post("/logout", requireAuth, authControllers.postLogout);

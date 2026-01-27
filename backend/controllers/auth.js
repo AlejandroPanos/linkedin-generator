@@ -1,6 +1,7 @@
 /* Create imports */
 const User = require("../models/user");
 const { createToken, maxAge } = require("../helpers/helpers");
+const bcrypt = require("bcrypt");
 
 /* Create controllers */
 exports.getLoggedUser = async (req, res) => {
@@ -20,6 +21,47 @@ exports.getLoggedUser = async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: error.message });
+  }
+};
+
+exports.updateProfile = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    const userId = req.user.id;
+
+    const currentUser = await User.findById(userId);
+    if (!currentUser) {
+      return res.status(401).json({ error: "User not found" });
+    }
+
+    const updateData = {};
+
+    if (name) updateData.name = name;
+    if (email) {
+      const existingUser = await User.findOne({ email, _id: { $ne: userId } });
+      if (existingUser) {
+        return res.status(400).json({ error: "Email already in use" });
+      }
+      updateData.email = email;
+    }
+
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      updateData.password = await bcrypt.hash(password, salt);
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(userId, updateData, {
+      new: true,
+      runValidators: true,
+    }).select("-password");
+
+    res.status(200).json({ user: updatedUser });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({
+      success: false,
+      error: error.message,
+    });
   }
 };
 

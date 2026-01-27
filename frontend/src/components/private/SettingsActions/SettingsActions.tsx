@@ -4,7 +4,7 @@ const SettingsActions = () => {
       <div className="content-wrapper">
         <h2>Change or cancel plan</h2>
         <p>
-          You are currently in the Free Plan. If you want to upgrade to Business Plan{" "}
+          You are currently in the Free Plan. If you want to change to a different plan,{" "}
           <a href="#">click here</a>.
         </p>
         <p>
