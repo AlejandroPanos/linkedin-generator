@@ -28,7 +28,11 @@ const businessPlan = [
   },
 ];
 
-const BusinessPlan = () => {
+interface BusinessProps {
+  isYear: boolean;
+}
+
+const BusinessPlan = ({ isYear }: BusinessProps) => {
   return (
     <>
       <div className="plan-wrapper">
@@ -40,7 +44,8 @@ const BusinessPlan = () => {
         <hr />
 
         <h2>
-          $9<span>/month</span>
+          {isYear ? "$80" : "$9"}
+          <span>/{isYear ? "year" : "month"}</span>
         </h2>
 
         <button>Start Now</button>

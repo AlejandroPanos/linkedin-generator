@@ -167,7 +167,15 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
                   <h3>
                     <span>12</span>/20 Credits Left
                   </h3>
-                  <div className="w-full bg-neutral-700 rounded-full h-2">
+                  <div
+                    className="w-full bg-neutral-700 rounded-full h-2"
+                    role="progressbar"
+                    aria-label="Credits remaining"
+                    aria-valuemin={0}
+                    aria-valuemax={20}
+                    aria-valuenow={12}
+                    aria-valuetext="12 of 20 credits left"
+                  >
                     <div
                       className="bg-linear-to-t from-orange-800 to-orange-700 h-2 rounded-full"
                       style={{ width: "60%" }}

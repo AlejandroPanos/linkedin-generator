@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@layer components {
+  .footer-wrapper {
+    @apply w-full h-64 p-4 flex items-start justify-between gap-4 rounded-lg border border-neutral-700/50 shadow-[0_0_30px_rgba(38,38,38,0.75)] hover:shadow-[0_0_30px_rgba(64,64,64,0.85)] transition-all;
+  }
+
+  .footer-left {
+    @apply h-full flex flex-col items-start justify-between gap-4;
+  }
+
+  .footer-left p {
+    @apply text-sm;
+  }
+
+  .footer-left a {
+    @apply underline text-neutral-300;
+  }
+
+  .footer-right {
+    @apply flex items-start gap-8;
+  }
+
+  .footer-right-col {
+    @apply flex flex-col items-end gap-4;
+  }
+
+  .footer-right-col h3 {
+    @apply text-sm text-neutral-500;
+  }
+
+  .footer-right-col ul {
+    @apply list-none flex flex-col items-end gap-2 underline text-neutral-300 text-sm;
+  }
+
+  .footer-right-col ul li {
+    @apply hover:opacity-90 transition-all;
+  }
+}
