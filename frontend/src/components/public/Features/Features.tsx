@@ -32,7 +32,7 @@ const features = [
     id: "5",
     icon: <SlidersHorizontal className="w-4 h-4" />,
     title: "Filter Posts",
-    description: "Filter posts by favorite to easiliy access them.",
+    description: "Filter posts by favorite to easily access them.",
   },
   {
     id: "6",

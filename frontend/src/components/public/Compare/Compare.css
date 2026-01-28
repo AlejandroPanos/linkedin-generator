@@ -2,7 +2,7 @@
 
 @layer components {
   .compare-wrapper {
-    @apply flex flex-col items-center gap-12 px-16 py-8 bg-neutral-950 rounded-md border border-neutral-700/50 shadow-[0_0_30px_rgba(38,38,38,0.75)];
+    @apply flex flex-col items-center gap-12 px-16 py-8 bg-neutral-950 rounded-md border border-neutral-700/50 shadow-[0_0_30px_rgba(38,38,38,0.75)] hover:shadow-[0_0_30px_rgba(64,64,64,0.85)] transition-all;
   }
 
   .compare-text-wrapper {

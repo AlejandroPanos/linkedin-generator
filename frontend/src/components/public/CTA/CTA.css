@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@layer components {
+  .cta-content-wrapper {
+    @apply w-full px-8 py-16 rounded-lg bg-linear-to-br from-orange-700 to-orange-800 border border-orange-400 hover:border-orange-500 transition-all;
+  }
+
+  .cta-text-wrapper {
+    @apply mx-auto w-2/3 flex flex-col items-center justify-center gap-4;
+  }
+
+  .cta-text-wrapper h2 {
+    @apply text-orange-100;
+  }
+
+  .cta-text-wrapper p {
+    @apply text-orange-100/50;
+  }
+
+  .cta-text-wrapper button {
+    @apply px-4 py-2 bg-orange-100 flex items-center gap-2 rounded-md hover:opacity-90 hover:cursor-pointer transition-all;
+  }
+
+  .cta-text-wrapper button span {
+    @apply text-orange-700 text-sm font-medium;
+  }
+}

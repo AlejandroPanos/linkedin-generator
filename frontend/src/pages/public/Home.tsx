@@ -3,6 +3,8 @@ import Hero from "../../components/public/Hero/Hero";
 import Features from "../../components/public/Features/Features";
 import Compare from "../../components/public/Compare/Compare";
 import Plans from "../../components/public/Plans/Plans";
+import CTA from "../../components/public/CTA/CTA";
+import Footer from "../../components/public/Footer/Footer";
 
 const Home = () => {
   return (
@@ -12,6 +14,8 @@ const Home = () => {
         <Features />
         <Compare />
         <Plans />
+        <CTA />
+        <Footer />
       </div>
     </>
   );
