@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer components {
+  .features-content-wrapper {
+    @apply w-full flex flex-col items-center justify-center gap-10;
+  }
+
+  .features-text-wrapper {
+    @apply flex flex-col items-center gap-4;
+  }
+}

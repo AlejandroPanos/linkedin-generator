@@ -55,6 +55,10 @@ exports.updateProfile = async (req, res) => {
       runValidators: true,
     }).select("-password");
 
+    if (!updatedUser) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     res.status(200).json({ user: updatedUser });
   } catch (error) {
     console.error(error.message);

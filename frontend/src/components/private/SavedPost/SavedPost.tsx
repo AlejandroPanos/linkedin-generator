@@ -71,13 +71,22 @@ const SavedPost = ({ id, title, content, isFavorite, date }: SavedPost): React.J
           <h2>{title}</h2>
           <div className="flex items-center gap-2">
             <button
+              type="button"
               onClick={handleFavorite}
               disabled={favoriteMutation.isPending}
               className="favorite-btn"
+              aria-label={isFavorite ? "Remove from favorites" : "Add to favorites"}
+              aria-pressed={isFavorite}
             >
               {isFavorite ? <Star className="star" /> : <StarOff className="star-off" />}
             </button>
-            <button onClick={handleDelete} className="delete-btn">
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="delete-btn"
+              aria-label="Delete post"
+              disabled={deleteMutation.isPending}
+            >
               <Trash2 className="w-4 h-4 text-red-400" />
             </button>
           </div>
