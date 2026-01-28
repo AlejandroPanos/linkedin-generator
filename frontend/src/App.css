@@ -3,7 +3,7 @@
 @import "tailwind-animations";
 
 body {
-  @apply bg-neutral-950 text-neutral-200;
+  @apply bg-neutral-950 text-neutral-300;
   font-family: "Inter", sans-serif;
 }
 

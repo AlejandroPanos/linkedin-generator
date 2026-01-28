@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer components {
+  .plans-content-wrapper {
+    @apply w-full flex flex-col items-center justify-center gap-10;
+  }
+
+  .plans-text-wrapper {
+    @apply flex flex-col items-center gap-4;
+  }
+
+  .plans-grid {
+    @apply w-full grid grid-cols-1 lg:grid-cols-2 gap-8;
+  }
+
+  .plan-wrapper {
+    @apply w-full p-8 col-span-1 flex flex-col items-start gap-4 bg-neutral-800/50 border border-neutral-700/50 rounded-lg hover:border-neutral-700 transition-all;
+  }
+
+  .plan-wrapper hr {
+    @apply w-full text-neutral-700;
+  }
+
+  .plan-wrapper h2 {
+    @apply text-neutral-500;
+  }
+
+  .plan-wrapper h2 span {
+    @apply text-neutral-500 text-base;
+  }
+
+  .plan-wrapper button {
+    @apply w-full p-2 rounded-md bg-linear-to-r from-orange-500 to-orange-700 hover:opacity-90 hover:cursor-pointer transition-all;
+  }
+
+  .plan-wrapper ul {
+    @apply flex flex-col items-start gap-4 text-neutral-500 text-sm;
+  }
+
+  .plan-wrapper ul li {
+    @apply flex items-center gap-2;
+  }
+
+  .plan-text-wrapper {
+    @apply w-full flex flex-col items-start gap-1;
+  }
+
+  .plan-text-wrapper h3 {
+    @apply text-3xl text-orange-500;
+  }
+
+  .plan-text-wrapper p {
+    @apply text-sm;
+  }
+}
