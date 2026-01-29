@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 const { isEmail } = require("validator");
+const crypto = require("crypto");
 
 /* Create Schema */
 const userSchema = new Schema(
@@ -59,6 +60,11 @@ const userSchema = new Schema(
 );
 
 /* Create methods */
+userSchema.virtual("gravatarUrl").get(function () {
+  const hash = crypto.createHash("md5").update(this.email.toLowerCase().trim()).digest("hex");
+  return `https://www.gravatar.com/avatar/${hash}?d=identicon&s=200`;
+});
+
 userSchema.statics.register = async function (name, email, password) {
   if (!name || !email || !password) {
     throw new Error("All fields required");

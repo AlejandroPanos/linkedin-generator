@@ -13,6 +13,7 @@ interface User {
   subscriptionStatus: "active" | "canceled" | "past_due" | "incomplete";
   monthlyPostsCreated: number;
   lastResetDate: string;
+  gravatarUrl: string;
   createdAt: string;
   updatedAt: string;
 }

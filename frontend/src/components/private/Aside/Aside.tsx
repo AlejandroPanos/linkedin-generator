@@ -15,7 +15,6 @@ import { useMutation } from "@tanstack/react-query";
 
 import "./Aside.css";
 import logo from "../../../images/Logo.svg";
-import avatar from "../../../images/Avatar.jpg";
 import { logout } from "../../../helpers/helpers";
 import { useAuth } from "../../../hooks/useAuth";
 
@@ -183,7 +182,7 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
         <div className="bottom-aside">
           <div className={`user-content-holder ${close ? "hidden" : "flex"}`}>
             <div className="user-img-holder shrink-0">
-              <img src={avatar} alt="User avatar profile photo" />
+              <img src={user?.gravatarUrl} alt="User avatar profile photo" />
             </div>
             <div className="user-personal-info overflow-hidden">
               <h3 className="truncate">{user?.name}</h3>
