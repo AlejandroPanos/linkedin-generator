@@ -6,6 +6,13 @@ interface User {
   _id: string;
   name: string;
   email: string;
+  plan: "free" | "business";
+  billingPeriod: "monthly" | "yearly";
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
+  subscriptionStatus: "active" | "canceled" | "past_due" | "incomplete";
+  monthlyPostsCreated: number;
+  lastResetDate: string;
   createdAt: string;
   updatedAt: string;
 }
@@ -66,7 +73,6 @@ const AuthContextProvider = ({ children }: AuthContextProviderProps) => {
         dispatch({ type: "LOGIN", payload: user });
       } catch (error) {
         console.error(error);
-        console.log("Auth Failed");
         dispatch({ type: "AUTH_READY" });
       }
     };

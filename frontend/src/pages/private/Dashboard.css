@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer components {
+  .warning-banner {
+    @apply w-full p-2 bg-orange-900/50 border border-orange-400 rounded-lg text-orange-400 text-sm;
+  }
+
+  .limit-reached-banner {
+    @apply w-full flex items-center justify-between p-2 bg-red-900/50 border border-red-400 rounded-lg text-red-400 font-medium text-sm;
+  }
+
+  .limit-reached-banner p {
+    @apply text-red-400;
+  }
+}

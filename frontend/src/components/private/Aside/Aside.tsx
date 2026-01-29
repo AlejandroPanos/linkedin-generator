@@ -10,7 +10,7 @@ import {
   ArrowLeftFromLine,
   ArrowRightFromLine,
 } from "lucide-react";
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useNavigate, Link } from "react-router";
 import { useMutation } from "@tanstack/react-query";
 
 import "./Aside.css";
@@ -65,7 +65,7 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
       >
         {/* Top */}
         <div className="top-aside">
-          <div className={`logo-holder ${close ? "justify-center" : "justify-between"}`}>
+          <div className={`logo-holder ${close ? "justify-center gap-0" : "justify-between"}`}>
             <img
               className={`${close ? "w-0 opacity-0" : "w-36 opacity-100"} overflow-hidden`}
               src={logo}
@@ -163,25 +163,16 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
 
                 {/* Desktop: Full plan card */}
                 <div className="hidden md:flex plan-holder">
-                  <span className="plan-type">Free Plan</span>
+                  <span className="plan-type">
+                    {`${user?.plan.charAt(0).toUpperCase()}${user?.plan.slice(1)}`} Plan
+                  </span>
                   <h3>
-                    <span>12</span>/20 Credits Left
+                    <span>{user?.monthlyPostsCreated}</span>/{user?.plan === "free" ? "5" : "40"}{" "}
+                    Posts Created
                   </h3>
-                  <div
-                    className="w-full bg-neutral-700 rounded-full h-2"
-                    role="progressbar"
-                    aria-label="Credits remaining"
-                    aria-valuemin={0}
-                    aria-valuemax={20}
-                    aria-valuenow={12}
-                    aria-valuetext="12 of 20 credits left"
-                  >
-                    <div
-                      className="bg-linear-to-t from-orange-800 to-orange-700 h-2 rounded-full"
-                      style={{ width: "60%" }}
-                    ></div>
-                  </div>
-                  <button className="credits-btn">Buy Credits</button>
+                  <Link to="/settings" className="credits-btn">
+                    Change Plan
+                  </Link>
                 </div>
               </>
             )}
@@ -205,7 +196,7 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
             title={close ? "Log Out" : ""}
           >
             <LogOut className="h-4 w-4 shrink-0" />
-            <p className={`${close ? "hidden" : "block"}`}>Log Out</p>
+            <p className={`text-red-400 ${close ? "hidden" : "block"}`}>Log Out</p>
           </button>
         </div>
       </aside>

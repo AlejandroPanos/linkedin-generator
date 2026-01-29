@@ -1,4 +1,5 @@
 import { CircleCheck } from "lucide-react";
+import { Link } from "react-router";
 
 const freePlan = [
   {
@@ -43,7 +44,9 @@ const FreePlan = () => {
           $0<span>/month</span>
         </h2>
 
-        <button>Start Now</button>
+        <Link className="start-btn" to={"/register"}>
+          Start Now
+        </Link>
 
         <hr />
         <ul>

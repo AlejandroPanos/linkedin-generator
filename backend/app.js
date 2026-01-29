@@ -11,9 +11,13 @@ const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/auth");
 const aiRoutes = require("./routes/ai");
 const postsRoutes = require("./routes/posts");
+const subscriptionRoutes = require("./routes/subscription");
 const { checkAuth } = require("./middleware/auth");
 const PORT = process.env.PORT;
 const URI = process.env.MONGO_DB_URI;
+
+/* Set up Stripe webhook */
+app.use("/api/subscription/webhook", express.raw({ type: "application/json" }), subscriptionRoutes);
 
 /* Run parsing middleware */
 app.use(bodyParser.urlencoded());
@@ -35,6 +39,7 @@ app.use(checkAuth);
 app.use("/api/auth", authRoutes);
 app.use("/api/ai", aiRoutes);
 app.use("/api/posts", postsRoutes);
+app.use("/api/subscription", subscriptionRoutes);
 
 /* Connect to MongoDB */
 const mongooseConnect = async () => {

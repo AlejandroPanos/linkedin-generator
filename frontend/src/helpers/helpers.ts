@@ -91,3 +91,20 @@ export const deletePost = async (postId: string) => {
   const response = await axios.delete(`/api/posts/${postId}`);
   return response.data;
 };
+
+/* Create STRIPE helpers */
+export const createCheckoutSession = async (
+  plan: "free" | "business",
+  billingPeriod: "monthly" | "yearly",
+) => {
+  const response = await axios.post("/api/subscription/create-checkout-session", {
+    plan,
+    billingPeriod,
+  });
+  return response.data;
+};
+
+export const cancelSubscription = async () => {
+  const response = await axios.post("/api/subscription/cancel");
+  return response.data;
+};

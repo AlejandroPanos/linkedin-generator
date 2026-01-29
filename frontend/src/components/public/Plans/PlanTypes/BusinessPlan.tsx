@@ -1,4 +1,9 @@
 import { CircleCheck } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
+import { useNavigate } from "react-router";
+
+import { useAuth } from "../../../../hooks/useAuth";
+import { createCheckoutSession } from "../../../../helpers/helpers";
 
 const businessPlan = [
   {
@@ -33,6 +38,34 @@ interface BusinessProps {
 }
 
 const BusinessPlan = ({ isYear }: BusinessProps) => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
+  const checkoutMutation = useMutation({
+    mutationFn: () => createCheckoutSession("business", isYear ? "yearly" : "monthly"),
+    onSuccess: (data) => {
+      window.location.href = data.sessionUrl;
+    },
+    onError: () => {
+      alert("Checkout error");
+    },
+  });
+
+  const handleUpgrade = () => {
+    if (!user) {
+      localStorage.setItem(
+        "pendingPlan",
+        JSON.stringify({
+          plan: "business",
+          billingPeriod: isYear ? "yearly" : "monthly",
+        }),
+      );
+      navigate("/register");
+      return;
+    }
+    checkoutMutation.mutate();
+  };
+
   return (
     <>
       <div className="plan-wrapper">
@@ -48,7 +81,9 @@ const BusinessPlan = ({ isYear }: BusinessProps) => {
           <span>/{isYear ? "year" : "month"}</span>
         </h2>
 
-        <button>Start Now</button>
+        <button onClick={handleUpgrade} disabled={checkoutMutation.isPending}>
+          {checkoutMutation.isPending ? "Loading..." : "Start Now"}
+        </button>
 
         <hr />
         <ul>
