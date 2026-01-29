@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer components {
-  .hero-wrapper  {
+  .hero-wrapper {
     @apply w-full h-screen flex flex-col items-center justify-center gap-10;
   }
 
