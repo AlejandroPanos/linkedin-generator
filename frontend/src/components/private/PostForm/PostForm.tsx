@@ -8,9 +8,10 @@ interface PostFormProps {
   handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
   isPending: boolean;
   isError: boolean;
+  disabled: boolean;
 }
 
-const PostForm = ({ handleSubmit, isPending, isError }: PostFormProps): JSX.Element => {
+const PostForm = ({ handleSubmit, isPending, isError, disabled }: PostFormProps): JSX.Element => {
   return (
     <>
       <div className="content-wrapper h-full">
@@ -68,7 +69,7 @@ const PostForm = ({ handleSubmit, isPending, isError }: PostFormProps): JSX.Elem
             </div>
             {isError && <p className="text-red-500">Failed to generate post. Please try again.</p>}
 
-            <button disabled={isPending} type="submit" className="generate-post-btn">
+            <button disabled={isPending || disabled} type="submit" className="generate-post-btn">
               <Sparkles className="w-4 h-4 font-medium" />
               <span>Generate</span>
             </button>

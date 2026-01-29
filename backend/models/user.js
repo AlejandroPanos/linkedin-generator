@@ -25,6 +25,35 @@ const userSchema = new Schema(
       minlength: 6,
       select: false,
     },
+    plan: {
+      type: String,
+      enum: ["free", "business"],
+      default: "free",
+    },
+    billingPeriod: {
+      type: String,
+      enum: ["monthly", "yearly"],
+      default: "monthly",
+    },
+    stripeCustomerId: {
+      type: String,
+    },
+    stripeSubscriptionId: {
+      type: String,
+    },
+    subscriptionStatus: {
+      type: String,
+      enum: ["active", "canceled", "past_due", "incomplete"],
+      default: "active",
+    },
+    monthlyPostsCreated: {
+      type: Number,
+      default: 0,
+    },
+    lastResetDate: {
+      type: Date,
+      default: Date.now,
+    },
   },
   { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
@@ -80,6 +109,26 @@ userSchema.pre("save", async function () {
     throw new Error("Password operation failed");
   }
 });
+
+userSchema.methods.canGeneratePost = function () {
+  const limits = {
+    free: 5,
+    business: 40,
+  };
+
+  return this.monthlyPostsCreated < limits[this.plan];
+};
+
+userSchema.methods.resetMonthlyUsage = function () {
+  const now = new Date();
+  const lastReset = new Date(this.lastResetDate);
+
+  if (now.getMonth() !== lastReset.getMonth() || now.getFullYear() !== lastReset.getFullYear()) {
+    this.monthlyPostsCreated = 0;
+    this.lastResetDate = now;
+    return this.save();
+  }
+};
 
 /* Create export */
 module.exports = mongoose.model("User", userSchema);

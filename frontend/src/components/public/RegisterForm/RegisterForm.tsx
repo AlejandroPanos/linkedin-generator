@@ -4,6 +4,7 @@ import type { FormEvent } from "react";
 import { AxiosError } from "axios";
 
 import { register } from "../../../helpers/helpers";
+import { createCheckoutSession } from "../../../helpers/helpers";
 import { useAuth } from "../../../hooks/useAuth";
 
 const RegisterForm = () => {
@@ -12,9 +13,27 @@ const RegisterForm = () => {
 
   const registerMutation = useMutation({
     mutationFn: register,
-    onSuccess: (data) => {
+    onSuccess: async (data) => {
       dispatch({ type: "REGISTER", payload: data });
-      navigate("/dashboard");
+
+      const pendingPlan = localStorage.getItem("pendingPlan");
+      if (pendingPlan) {
+        try {
+          const { plan, billingPeriod } = JSON.parse(pendingPlan);
+          localStorage.removeItem("pendingPlan");
+
+          const checkoutData = await createCheckoutSession(plan, billingPeriod);
+          if (checkoutData && checkoutData.sessionUrl) {
+            window.location.href = checkoutData.sessionUrl;
+          } else {
+            navigate("/dashboard");
+          }
+        } catch (error) {
+          navigate("/dashboard");
+        }
+      } else {
+        navigate("/dashboard");
+      }
     },
   });
 

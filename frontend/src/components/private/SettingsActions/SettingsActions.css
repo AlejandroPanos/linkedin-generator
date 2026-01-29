@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@layer components {
+  .action-btns {
+    @apply w-full flex flex-col md:flex-row items-center gap-4;
+  }
+
+  .upgrade-btn {
+    @apply flex items-center justify-center gap-2 w-full py-1 rounded-md bg-linear-to-t from-orange-800 to-orange-700 text-sm hover:cursor-pointer hover:opacity-95 transition-all disabled:opacity-60 disabled:pointer-events-none;
+  }
+
+  .cancel-btn {
+    @apply flex items-center justify-center gap-2 w-full py-1 rounded-md bg-linear-to-t from-red-700 to-red-600 text-sm hover:cursor-pointer hover:opacity-95 transition-all disabled:opacity-60 disabled:pointer-events-none;
+  }
+
+  .modal-overlay {
+    @apply fixed top-0 left-0 bottom-0 right-0 bg-neutral-950/80 flex items-center justify-center z-100;
+  }
+
+  .modal-content {
+    @apply bg-neutral-900 p-8 rounded-lg border border-neutral-700/50 max-w-125 w-[90%];
+  }
+
+  .modal-content h3 {
+    @apply mb-2 text-xl;
+  }
+
+  .plan-options {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 my-6;
+  }
+
+  .plan-option {
+    @apply p-6 border border-neutral-700/50 rounded-lg bg-transparent hover:cursor-pointer hover:border-orange-700 hover:-translate-y-1 transition-all;
+  }
+
+  .plan-option h4 {
+    @apply text-lg mb-2 text-neutral-300;
+  }
+
+  .plan-option .price {
+    @apply text-2xl font-bold bg-linear-to-r from-orange-500 to-orange-700 bg-clip-text text-transparent;
+  }
+
+  .plan-option.featured {
+    @apply border border-orange-700 bg-orange-900/10;
+  }
+
+  .badge {
+    @apply inline-block mt-2 text-sm text-orange-500;
+  }
+
+  .close-btn {
+    @apply w-full p-3 mt-4 bg-transparent border border-neutral-700/50 rounded-lg text-neutral-300 hover:border-neutral-700 hover:cursor-pointer transition-all;
+  }
+}
