@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./Hero.css";
 
 const Hero = () => {
@@ -20,8 +21,8 @@ const Hero = () => {
 
           <div className="hero-cta-wrapper">
             <div className="hero-btn-wrapper">
-              <button>Try Free</button>
-              <button>Log In</button>
+              <a href="#pricing">Try Free</a>
+              <Link to="/login">Log In</Link>
             </div>
             <p>🎉 Try it free for 7 days</p>
           </div>

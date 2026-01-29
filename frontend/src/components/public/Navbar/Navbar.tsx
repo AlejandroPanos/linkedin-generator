@@ -15,22 +15,18 @@ const Navbar = () => {
       </a>
 
       <div className="desktop-nav-link-holder">
-        <NavLink to="/" className="desktop-nav-link group">
+        <a href="#hero" className="desktop-nav-link group">
           <span className="span-visible">Home</span>
           <span className="span-hidden">Home</span>
-        </NavLink>
-        <NavLink to="/" className="desktop-nav-link group">
-          <span className="span-visible">Stories</span>
-          <span className="span-hidden">Stories</span>
-        </NavLink>
-        <NavLink to="/" className="desktop-nav-link group">
+        </a>
+        <a href="#features" className="desktop-nav-link group">
+          <span className="span-visible">Features</span>
+          <span className="span-hidden">Features</span>
+        </a>
+        <a href="#pricing" className="desktop-nav-link group">
           <span className="span-visible">Pricing</span>
           <span className="span-hidden">Pricing</span>
-        </NavLink>
-        <NavLink to="/" className="desktop-nav-link group">
-          <span className="span-visible">Docs</span>
-          <span className="span-hidden">Docs</span>
-        </NavLink>
+        </a>
       </div>
 
       <div className="nav-btn-group">
@@ -53,20 +49,21 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div className={`public-mobile-menu ${mobileMenuOpen ? "flex" : "hidden"}`}>
-        <NavLink to="/" onClick={() => setMobileMenuOpen(false)}>
+        <a href="#hero" onClick={() => setMobileMenuOpen(false)}>
           Home
-        </NavLink>
-        <NavLink to="/" onClick={() => setMobileMenuOpen(false)}>
-          Stories
-        </NavLink>
-        <NavLink to="/" onClick={() => setMobileMenuOpen(false)}>
+        </a>
+        <a href="#features" onClick={() => setMobileMenuOpen(false)}>
+          Features
+        </a>
+        <a href="#pricing" onClick={() => setMobileMenuOpen(false)}>
           Pricing
-        </NavLink>
-        <NavLink to="/" onClick={() => setMobileMenuOpen(false)}>
-          Docs
-        </NavLink>
-        <button onClick={() => setMobileMenuOpen(false)}>Contact</button>
-        <button onClick={() => setMobileMenuOpen(false)}>Get Started</button>
+        </a>
+        <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
+          Log In
+        </Link>
+        <Link to="/register" onClick={() => setMobileMenuOpen(false)}>
+          Register
+        </Link>
       </div>
     </nav>
   );
