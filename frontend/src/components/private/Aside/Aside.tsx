@@ -27,7 +27,6 @@ interface AsideDesktop {
 const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
   const navigate = useNavigate();
   const { user, dispatch } = useAuth();
-  console.log(user);
 
   const logoutMutation = useMutation({
     mutationFn: logout,
