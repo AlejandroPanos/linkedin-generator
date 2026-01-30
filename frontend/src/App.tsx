@@ -1,25 +1,27 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import "./App.css";
 
-// Import private pages
-import Dashboard from "./pages/private/Dashboard";
-import SavedPosts from "./pages/private/SavedPosts";
-import Settings from "./pages/private/Settings";
-import Support from "./pages/private/Support";
-
-// Import public pages
-import Home from "./pages/public/Home";
-import Register from "./pages/public/Register";
-import Login from "./pages/public/Login";
-
-// Import routes
+// Always needed
 import PublicRoute from "./components/routes/PublicRoute";
 import PrivateRoute from "./components/routes/PrivateRoute";
-
-// Import layouts
 import PublicLayout from "./layouts/PublicLayout";
 import DashboardLayout from "./layouts/DashboardLayout";
+import Loader from "./components/state/Loader/Loader";
+
+// Lazy loading
+const Home = lazy(() => import("./pages/public/Home"));
+const Register = lazy(() => import("./pages/public/Register"));
+const Login = lazy(() => import("./pages/public/Login"));
+const Dashboard = lazy(() => import("./pages/private/Dashboard"));
+const SavedPosts = lazy(() => import("./pages/private/SavedPosts"));
+const Settings = lazy(() => import("./pages/private/Settings"));
+const Support = lazy(() => import("./pages/private/Support"));
+
+const LazyPage = ({ children }: { children: React.ReactNode }) => (
+  <Suspense fallback={<Loader />}>{children}</Suspense>
+);
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,9 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <PublicRoute>
-            <Home />
+            <LazyPage>
+              <Home />
+            </LazyPage>
           </PublicRoute>
         ),
       },
@@ -40,7 +44,9 @@ const router = createBrowserRouter([
     path: "/register",
     element: (
       <PublicRoute>
-        <Register />
+        <LazyPage>
+          <Register />
+        </LazyPage>
       </PublicRoute>
     ),
   },
@@ -48,7 +54,9 @@ const router = createBrowserRouter([
     path: "/login",
     element: (
       <PublicRoute>
-        <Login />
+        <LazyPage>
+          <Login />
+        </LazyPage>
       </PublicRoute>
     ),
   },
@@ -60,7 +68,9 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: (
           <PrivateRoute>
-            <Dashboard />
+            <LazyPage>
+              <Dashboard />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
@@ -68,7 +78,9 @@ const router = createBrowserRouter([
         path: "posts",
         element: (
           <PrivateRoute>
-            <SavedPosts />
+            <LazyPage>
+              <SavedPosts />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
@@ -76,7 +88,9 @@ const router = createBrowserRouter([
         path: "settings",
         element: (
           <PrivateRoute>
-            <Settings />
+            <LazyPage>
+              <Settings />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
@@ -84,7 +98,9 @@ const router = createBrowserRouter([
         path: "support",
         element: (
           <PrivateRoute>
-            <Support />
+            <LazyPage>
+              <Support />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
