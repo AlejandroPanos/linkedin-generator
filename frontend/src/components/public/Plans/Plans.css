@@ -42,15 +42,11 @@
   }
 
   .plan-wrapper h2 {
-    @apply text-neutral-500 text-2xl;
+    @apply text-neutral-300 text-2xl;
   }
 
   .plan-wrapper h2 span {
-    @apply text-neutral-500 text-base;
-  }
-
-  .plan-wrapper button {
-    @apply w-full flex items-center justify-center p-2 rounded-md bg-linear-to-r from-orange-500 to-orange-700 hover:opacity-90 hover:cursor-pointer transition-all disabled:opacity-60 disabled:pointer-events-none;
+    @apply text-neutral-500 text-sm font-light;
   }
 
   .plan-wrapper ul {
@@ -72,7 +68,12 @@
   .plan-text-wrapper p {
     @apply text-sm;
   }
+
   .start-btn {
     @apply w-full flex items-center justify-center gap-2 p-2 rounded-md bg-linear-to-r from-orange-500 to-orange-700 hover:opacity-90 hover:cursor-pointer transition-all disabled:opacity-60 disabled:pointer-events-none;
+  }
+
+  .start-btn span {
+    @apply text-sm;
   }
 }

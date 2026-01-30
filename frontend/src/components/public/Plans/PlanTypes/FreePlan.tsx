@@ -1,4 +1,4 @@
-import { CircleCheck } from "lucide-react";
+import { CircleCheck, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router";
 
 const freePlan = [
@@ -44,8 +44,9 @@ const FreePlan = () => {
           $0<span>/month</span>
         </h2>
 
-        <Link className="start-btn" to={"/register"}>
-          Register For Free
+        <Link className="start-btn group" to="/register">
+          <span>Register For Free</span>
+          <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
         </Link>
 
         <hr />

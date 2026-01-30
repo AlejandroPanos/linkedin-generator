@@ -51,7 +51,7 @@ const BusinessPlan = ({ isYear }: BusinessProps) => {
 
         <Link className="start-btn group" to="/register">
           <span>Register For Free</span>
-          <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-1 " />
+          <ArrowUpRight className="w-4 h-4 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-all" />
         </Link>
 
         <hr />

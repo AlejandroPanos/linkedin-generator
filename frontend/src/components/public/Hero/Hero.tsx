@@ -21,10 +21,9 @@ const Hero = () => {
 
           <div className="hero-cta-wrapper">
             <div className="hero-btn-wrapper">
-              <a href="#pricing">Try Free</a>
+              <a href="#pricing">Register For Free</a>
               <Link to="/login">Log In</Link>
             </div>
-            <p>🎉 Try it free for 7 days</p>
           </div>
 
           <div className="video-wrapper">
