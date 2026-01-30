@@ -155,10 +155,10 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
             ) : (
               <>
                 {/* Mobile: Simple button */}
-                <button className="md:hidden nav-link" title="Credits">
+                <Link to="settings" className="mobile-btn" title={close ? "Change Plan" : ""}>
                   <Wallet className="h-4 w-4 shrink-0" />
-                  <p className="whitespace-nowrap">Credits</p>
-                </button>
+                  <p className={`${close ? "hidden" : "block"} whitespace-nowrap`}>Change Plan</p>
+                </Link>
 
                 {/* Desktop: Full plan card */}
                 <div className="hidden md:flex plan-holder">

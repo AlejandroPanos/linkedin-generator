@@ -34,23 +34,23 @@ const router = createBrowserRouter([
           </PublicRoute>
         ),
       },
-      {
-        path: "/register",
-        element: (
-          <PublicRoute>
-            <Register />
-          </PublicRoute>
-        ),
-      },
-      {
-        path: "/login",
-        element: (
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        ),
-      },
     ],
+  },
+  {
+    path: "/register",
+    element: (
+      <PublicRoute>
+        <Register />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <PublicRoute>
+        <Login />
+      </PublicRoute>
+    ),
   },
   {
     path: "/",

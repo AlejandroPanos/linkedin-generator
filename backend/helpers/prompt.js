@@ -31,7 +31,7 @@ MANDATORY STRUCTURE:
    - Line breaks between paragraphs for visual breathing room
    - Each numbered item on a new line
    - Use → for emphasis or sub-points
-   - Use bold text strategically for key phrases (not entire sentences)
+   - NEVER bold text
    - Maximum 3 sentences per paragraph in setup/context
    - White space is your friend
 
@@ -65,7 +65,8 @@ WHAT TO AVOID:
 - Generic advice without personality
 
 OUTPUT:
-Provide ONLY the LinkedIn post text in ENGLISH, ready to copy-paste. No explanations, no meta-commentary. Make sure the format is plain text, no markup or HTML, and also no signs around the text such as '*', just plain text with the structure provided`;
+Provide ONLY the LinkedIn post text in ENGLISH, ready to copy-paste. No explanations, no meta-commentary. 
+Make sure the format is plain text, no markup or HTML, and also no signs around the text such as '*', just plain text with the structure provided`;
 
 const userPrompt = (topic, tone, length, context) => `
 Create a LinkedIn post with these parameters:
