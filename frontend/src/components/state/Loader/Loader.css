@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@layer components {
+  .loader-outter {
+    @apply absolute left-1/2 top-0 flex justify-center items-center min-h-screen bg-transparent;
+  }
+
+  .loader-inner {
+    @apply w-10 h-10 border-[3px] border-orange-600/10 border-t-orange-600 rounded-full animate-spin;
+  }
+}
