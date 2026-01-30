@@ -3,7 +3,7 @@ import axios from "axios";
 
 /* Set up axios defaults */
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 /* Create AUTH helpers */
 interface RegisterUser {
