@@ -1,39 +1,18 @@
-import { Link, useNavigate } from "react-router";
+import { Link } from "react-router";
 import { useMutation } from "@tanstack/react-query";
 import type { FormEvent } from "react";
 import { AxiosError } from "axios";
 
 import { register } from "../../../helpers/helpers";
-import { createCheckoutSession } from "../../../helpers/helpers";
 import { useAuth } from "../../../hooks/useAuth";
 
 const RegisterForm = () => {
-  const navigate = useNavigate();
   const { dispatch } = useAuth();
 
   const registerMutation = useMutation({
     mutationFn: register,
     onSuccess: async (data) => {
       dispatch({ type: "REGISTER", payload: data });
-
-      const pendingPlan = localStorage.getItem("pendingPlan");
-      if (pendingPlan) {
-        try {
-          const { plan, billingPeriod } = JSON.parse(pendingPlan);
-          localStorage.removeItem("pendingPlan");
-
-          const checkoutData = await createCheckoutSession(plan, billingPeriod);
-          if (checkoutData && checkoutData.sessionUrl) {
-            window.location.href = checkoutData.sessionUrl;
-          } else {
-            navigate("/dashboard");
-          }
-        } catch (error) {
-          navigate("/dashboard");
-        }
-      } else {
-        navigate("/dashboard");
-      }
     },
   });
 
