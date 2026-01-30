@@ -30,7 +30,7 @@ const Hero = () => {
             <div className="video-holder">
               <iframe
                 title="Product demo video"
-                src="https://youtu.be/5U2l-zX_b6A"
+                src="https://www.youtube.com/watch?v=5U2l-zX_b6A"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
