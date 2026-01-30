@@ -17,6 +17,7 @@ import "./Aside.css";
 import logo from "../../../images/Logo.svg";
 import { logout } from "../../../helpers/helpers";
 import { useAuth } from "../../../hooks/useAuth";
+import Loading from "../../state/Loading/Loading";
 
 interface AsideDesktop {
   close: boolean;
@@ -26,6 +27,11 @@ interface AsideDesktop {
 const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
   const navigate = useNavigate();
   const { user, dispatch } = useAuth();
+
+  const safeName =
+    typeof user?.plan === "string" && user?.plan.length > 0
+      ? user?.plan.charAt(0).toUpperCase() + user?.plan.slice(1)
+      : "";
 
   const logoutMutation = useMutation({
     mutationFn: logout,
@@ -38,6 +44,10 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
   const handleClick = () => {
     logoutMutation.mutate();
   };
+
+  if (!user) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -162,9 +172,7 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
 
                 {/* Desktop: Full plan card */}
                 <div className="hidden md:flex plan-holder">
-                  <span className="plan-type">
-                    {`${user?.plan.charAt(0).toUpperCase()}${user?.plan.slice(1)}`} Plan
-                  </span>
+                  <span className="plan-type">{safeName}</span>
                   <h3>
                     <span>{user?.monthlyPostsCreated}</span>/{user?.plan === "free" ? "5" : "40"}{" "}
                     Posts Created
