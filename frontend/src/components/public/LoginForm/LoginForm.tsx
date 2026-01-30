@@ -16,6 +16,9 @@ const LoginForm = () => {
       dispatch({ type: "LOGIN", payload: data });
       navigate("/dashboard");
     },
+    onError: (error) => {
+      console.error(error.message);
+    },
   });
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -33,10 +36,6 @@ const LoginForm = () => {
 
     loginMutation.mutate(user);
   };
-
-  if (loginMutation.error) {
-    console.log(loginMutation.error);
-  }
 
   return (
     <>

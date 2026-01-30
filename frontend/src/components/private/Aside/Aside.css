@@ -111,7 +111,7 @@
   }
 
   .mobile-btn {
-    @apply w-full flex items-center gap-2 px-2 py-1.5 rounded-lg bg-linear-to-t from-neutral-800 to-neutral-700 border border-neutral-700 hover:bg-neutral-900 text-center text-sm hover:cursor-pointer hover:shadow-sm hover:shadow-neutral-800 transition-all;
+    @apply w-full flex md:hidden items-center gap-2 px-2 py-1.5 rounded-lg bg-linear-to-t from-neutral-800 to-neutral-700 border border-neutral-700 hover:bg-neutral-900 text-center text-sm hover:cursor-pointer hover:shadow-sm hover:shadow-neutral-800 transition-all;
   }
 
   .mobile-btn p {
