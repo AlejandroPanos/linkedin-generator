@@ -45,7 +45,7 @@ const FreePlan = () => {
         </h2>
 
         <Link className="start-btn" to={"/register"}>
-          Start Now
+          Register For Free
         </Link>
 
         <hr />

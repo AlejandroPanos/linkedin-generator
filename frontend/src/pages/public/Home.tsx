@@ -9,7 +9,7 @@ import Footer from "../../components/public/Footer/Footer";
 const Home = () => {
   return (
     <>
-      <div className="flex flex-col items-start gap-48">
+      <div className="flex flex-col items-start gap-24 md:gap-48">
         <Hero />
         <Features />
         <Compare />

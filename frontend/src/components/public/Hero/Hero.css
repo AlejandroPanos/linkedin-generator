@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @layer components {
-  .hero-wrapper  {
+  .hero-wrapper {
     @apply w-full h-screen flex flex-col items-center justify-center gap-10;
   }
 
@@ -41,11 +41,11 @@
     @apply flex items-center gap-2;
   }
 
-  .hero-btn-wrapper button:first-child {
+  .hero-btn-wrapper a:nth-child(1) {
     @apply p-2 text-sm rounded-lg text-neutral-200 bg-linear-to-t from-orange-600 to-orange-700 hover:opacity-90 hover:cursor-pointer transition-all;
   }
 
-  .hero-btn-wrapper button:nth-child(2) {
+  .hero-btn-wrapper a:nth-child(2) {
     @apply p-2 text-sm rounded-lg text-neutral-200 bg-neutral-900 border border-neutral-700 hover:opacity-90 hover:cursor-pointer transition-all;
   }
 

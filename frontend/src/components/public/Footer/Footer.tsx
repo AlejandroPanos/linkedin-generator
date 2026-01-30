@@ -4,7 +4,7 @@ import logo from "../../../images/Logo.svg";
 const Footer = () => {
   return (
     <>
-      <footer className="w-full -mt-24">
+      <footer className="w-full mt-0 md:-mt-24">
         <div className="footer-wrapper">
           <div className="footer-left">
             <a href="#hero">

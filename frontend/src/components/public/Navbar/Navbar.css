@@ -46,11 +46,11 @@
     @apply text-neutral-300 text-sm;
   }
 
-  .public-mobile-menu button:nth-last-child(2) {
-    @apply w-full border border-neutral-600 px-4 py-2 rounded-full text-sm font-medium;
+  .public-mobile-menu a:nth-last-child(2) {
+    @apply w-full text-center border border-neutral-600 px-4 py-2 rounded-full text-sm font-medium;
   }
 
-  .public-mobile-menu button:last-child {
-    @apply w-full bg-neutral-100 shadow-[0px_0px_10px_2px] shadow-neutral-100/50 text-neutral-950 px-4 py-2 rounded-full text-sm font-medium;
+  .public-mobile-menu a:last-child {
+    @apply w-full text-center bg-neutral-100 shadow-[0px_0px_10px_2px] shadow-neutral-100/50 text-neutral-950 px-4 py-2 rounded-full text-sm font-medium;
   }
 }

@@ -2,7 +2,7 @@
 
 @layer components {
   .compare-wrapper {
-    @apply flex flex-col items-center gap-12 px-16 py-8 bg-neutral-950 rounded-md border border-neutral-700/50 shadow-[0_0_30px_rgba(38,38,38,0.75)] hover:shadow-[0_0_30px_rgba(64,64,64,0.85)] transition-all;
+    @apply flex flex-col items-center gap-12 px-4 md:px-16 py-8 bg-neutral-950 rounded-md border border-neutral-700/50 shadow-[0_0_30px_rgba(38,38,38,0.75)] hover:shadow-[0_0_30px_rgba(64,64,64,0.85)] transition-all;
   }
 
   .compare-text-wrapper {
@@ -10,7 +10,7 @@
   }
 
   .before-container {
-    @apply relative w-2/3 flex flex-col items-start gap-4 px-4 py-12 rounded-lg border border-neutral-700/50 bg-neutral-800/50;
+    @apply relative w-[90%] md:w-2/3 flex flex-col items-start gap-4 px-4 py-12 rounded-lg border border-neutral-700/50 bg-neutral-800/50;
   }
 
   .before-pill {
@@ -18,7 +18,7 @@
   }
 
   .after-container {
-    @apply relative w-2/3 flex flex-col items-start gap-4 px-4 py-12 rounded-lg border border-orange-400/50 bg-orange-950/50;
+    @apply relative w-[90%] md:w-2/3 flex flex-col items-start gap-4 px-4 py-12 rounded-lg border border-orange-400/50 bg-orange-950/50;
   }
 
   .after-pill {

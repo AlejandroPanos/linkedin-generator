@@ -2,26 +2,26 @@
 
 @layer components {
   .cta-content-wrapper {
-    @apply w-full px-8 py-16 rounded-lg bg-linear-to-br from-orange-700 to-orange-800 border border-orange-400 hover:border-orange-500 transition-all;
+    @apply w-full px-4 md:px-8 py-8 md:py-16 rounded-lg bg-linear-to-br from-orange-700 to-orange-800 border border-orange-400 hover:border-orange-500 transition-all;
   }
 
   .cta-text-wrapper {
-    @apply mx-auto w-2/3 flex flex-col items-center justify-center gap-4;
+    @apply mx-auto w-full md:w-2/3 flex flex-col items-center justify-center gap-4;
   }
 
   .cta-text-wrapper h2 {
-    @apply text-orange-100;
+    @apply text-orange-100 text-center;
   }
 
   .cta-text-wrapper p {
-    @apply text-orange-100/50;
+    @apply text-orange-100/50 text-center;
   }
 
-  .cta-text-wrapper button {
+  .cta-text-wrapper a {
     @apply px-4 py-2 bg-orange-100 flex items-center gap-2 rounded-md hover:opacity-90 hover:cursor-pointer transition-all;
   }
 
-  .cta-text-wrapper button span {
+  .cta-text-wrapper a span {
     @apply text-orange-700 text-sm font-medium;
   }
 }
