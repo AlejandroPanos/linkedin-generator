@@ -27,11 +27,7 @@ interface AsideDesktop {
 const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
   const navigate = useNavigate();
   const { user, dispatch } = useAuth();
-
-  const safeName =
-    typeof user?.plan === "string" && user?.plan.length > 0
-      ? user?.plan.charAt(0).toUpperCase() + user?.plan.slice(1)
-      : "";
+  console.log(user);
 
   const logoutMutation = useMutation({
     mutationFn: logout,
@@ -172,7 +168,7 @@ const Aside = ({ close, setClose }: AsideDesktop): React.JSX.Element => {
 
                 {/* Desktop: Full plan card */}
                 <div className="hidden md:flex plan-holder">
-                  <span className="plan-type">{safeName}</span>
+                  <span className="plan-type">Your Posts</span>
                   <h3>
                     <span>{user?.monthlyPostsCreated}</span>/{user?.plan === "free" ? "5" : "40"}{" "}
                     Posts Created
